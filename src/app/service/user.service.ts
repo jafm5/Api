@@ -25,4 +25,15 @@ export class UserService {
     .pipe((res) => res);
   }
 
+    // Mostrar usuarios
+
+    mostrarUsuarios(rol): Observable<any>{
+      let options = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'})
+      }
+      return this._http
+        .get(this.apiURL + 'allUser/' + rol, options)
+        .pipe((res) => res);
+    }
+
 }

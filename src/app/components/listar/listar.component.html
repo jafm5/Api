@@ -1,1 +1,58 @@
-<p>listar works!</p>
+<div class="container">
+    <form class="mt-5" #ListarUsuarioForm="ngForm" (ngSubmit)="listar()">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-md-offset-2">
+                <div class="form-group">
+                    <label for="listarPorRol">Buscar por Rol</label>
+                    <select class="form-select " id="listarPorRol" name="listarPorRol" #listarPorRol="ngModel" [(ngModel)]="buscarRol">
+                        <option>Admin</option>
+                        <option>estudiante</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="col-md-8 col-sm-6 form-group mt-4">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+
+            </div>
+
+        </div>
+
+
+    </form>
+</div>
+<div class="container mt-5">
+    <table class="table  table-responsive">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Apellido</th>
+                <th scope="col" class="text-center">Edad</th>
+                <th scope="col" class="text-center">Correo</th>
+                <th scope="col" class="text-center">Rol</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuariosEncontrados">
+                <th scope="row">1</th>
+                <td class="text-center tamanoFuente"> {{usuario.firstName}}</td>
+                <td class="text-center tamanoFuente">{{usuario.lastName}}</td>
+                <td class="text-center tamanoFuente">{{usuario.email}}</td>
+                <td class="text-center tamanoFuente">{{usuario.age}}</td>
+                <td class="text-center tamanoFuente">{{usuario.rol}}</td>
+                <td> <button class="btn btn-success" [routerLink]="['/Actualizar']"> Actualizar</button> </td>
+                <td> <button class="btn btn-danger"> Eliminar</button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row mt-5">
+        <div class="col-12">
+
+        </div>
+    </div>
+
+</div>
